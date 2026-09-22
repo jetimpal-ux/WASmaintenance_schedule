@@ -290,9 +290,7 @@
             .vin-section { grid-template-columns: 1fr; }
         }
         
-        /* ============================================ */
-        /* PRINT STYLES - OPTIMIZED FOR A4 LANDSCAPE    */
-        /* ============================================ */
+        /* PRINT STYLES */
         @media print {
             @page {
                 size: A4 landscape;
@@ -313,7 +311,6 @@
                 font-size: 6px !important;
             }
             
-            /* Sembunyikan elemen yang tidak perlu */
             .toolbar,
             .btn-delete,
             .notification,
@@ -328,7 +325,6 @@
                 display: none !important;
             }
             
-            /* Header compact */
             .header {
                 background: #0d47a1 !important;
                 padding: 6px !important;
@@ -346,7 +342,6 @@
             }
             .header p { font-size: 7px !important; color: #b0bec5 !important; margin: 1px 0 !important; }
             
-            /* Tabel super compact */
             .table-container {
                 border-radius: 0 !important;
                 overflow: visible !important;
@@ -378,14 +373,12 @@
             }
             .odometer-cell { font-size: 5.5px !important; font-weight: bold !important; }
             
-            /* Checkbox kecil */
             input[type="checkbox"] {
                 width: 6px !important;
                 height: 6px !important;
                 margin: 0 !important;
             }
             
-            /* Input text compact */
             input[type="text"] {
                 font-size: 4.5px !important;
                 padding: 0.5px !important;
@@ -393,7 +386,6 @@
                 background: transparent !important;
             }
             
-            /* Footer compact */
             .footer-info {
                 padding: 4px !important;
                 background: #f5f5f5 !important;
@@ -422,14 +414,11 @@
                 color: black !important;
             }
             
-            /* Sembunyikan baris manual kosong */
             .manual-row { display: none !important; }
             
-            /* Zebra striping */
             tbody tr:nth-child(even) { background: #f0f0f0 !important; }
             tbody tr:nth-child(odd) { background: white !important; }
             
-            /* Print info */
             body::after {
                 content: "Dicetak: " attr(data-print-date) " | " attr(data-vehicle);
                 position: fixed;
@@ -472,9 +461,8 @@
         <span style="margin-left:auto; color:#b0bec5; font-size:11px;" id="lastSaved">Belum disimpan</span>
     </div>
 
-    <!-- Print Range Selector -->
     <div class="print-range-selector" id="printRangeSelector">
-        <label>🖨️ Pilih Range Print (A4 Landscape):</label>
+        <label>️ Pilih Range Print (A4 Landscape):</label>
         <div style="display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin-top:8px;">
             <div>
                 <label style="color:#b0bec5; font-size:10px; display:block;">Dari (km):</label>
@@ -498,7 +486,7 @@
             </div>
             <div style="display:flex; gap:5px; align-items:flex-end;">
                 <button class="btn-print" onclick="printSelectedRange()" style="padding:6px 12px; font-size:11px;">🖨️ Print Range</button>
-                <button class="btn-edit" onclick="document.getElementById('printRangeSelector').style.display='none'" style="padding:6px 12px; font-size:11px;"> Tutup</button>
+                <button class="btn-edit" onclick="document.getElementById('printRangeSelector').style.display='none'" style="padding:6px 12px; font-size:11px;">Tutup</button>
             </div>
         </div>
         <p style="color:#b0bec5; font-size:10px; margin-top:5px;">💡 Tips: Pilih range 150.000-250.000 (21 baris) agar muat 1 lembar A4</p>
@@ -545,14 +533,13 @@
                 </tr>
                 <tr>
                     <th class="col-status" style="background:#4caf50;">SUDAH ✓</th>
-                    <th class="col-status" style="background:#f44336;">BELUM </th>
+                    <th class="col-status" style="background:#f44336;">BELUM ✗</th>
                     <th class="col-realisasi">TANGGAL</th>
                     <th class="col-realisasi">ODOMETER<br>SAT DILAKUKAN</th>
                     <th class="col-realisasi">CATATAN</th>
                 </tr>
             </thead>
             <tbody id="tableBody">
-                <!-- 3 Baris Manual Input -->
                 <tr class="manual-row" data-manual="true">
                     <td><input type="text" class="editable" placeholder="Odometer (km)"></td>
                     <td><input type="checkbox" class="checkbox-done"></td>
@@ -569,7 +556,7 @@
                     <td><input type="text" placeholder="DD-MM-YYYY"></td>
                     <td><input type="text" placeholder="km"></td>
                     <td><input type="text" placeholder="Catatan..."></td>
-                    <td><button class="btn-delete" onclick="deleteRow(this)">🗑️</button></td>
+                    <td><button class="btn-delete" onclick="deleteRow(this)">️</button></td>
                 </tr>
                 <tr class="manual-row" data-manual="true">
                     <td><input type="text" class="editable" placeholder="Odometer (km)"></td>
@@ -646,14 +633,12 @@
 
     <script>
         // ============================================
-        // ⚠️ GANTI URL DI BAWAH INI dengan URL Web App kamu
+        // ️ GANTI URL DI BAWAH INI dengan URL Web App kamu
         // ============================================
         const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzWbbCeDJNrMj1GUnyqI_oYO-NPiynGMX0UcmYSCfXLBI4a-xvbkEmVm4TYJ2i8YSpEQA/exec';
         
         let editMode = false;
         let currentVehicleId = null;
-
-        function isEditable() { return editMode; }
 
         function toggleEdit() {
             editMode = !editMode;
@@ -709,11 +694,11 @@
         }
 
         // ============================================
-        // GOOGLE SHEETS INTEGRATION
+        // GOOGLE SHEETS FUNCTIONS
         // ============================================
         async function sendToGoogleSheets(data) {
             if (GOOGLE_SCRIPT_URL.includes('GANTI_DENGAN_URL')) {
-                showNotification('⚠️ URL Google Sheets belum disetting!', 'error');
+                showNotification('️ URL Google Sheets belum disetting!', 'error');
                 return false;
             }
 
@@ -755,7 +740,7 @@
 
         async function loadFromGoogleSheets() {
             if (GOOGLE_SCRIPT_URL.includes('GANTI_DENGAN_URL')) {
-                showNotification('️ URL Google Sheets belum disetting!', 'error');
+                showNotification('⚠️ URL Google Sheets belum disetting!', 'error');
                 return;
             }
 
@@ -770,7 +755,7 @@
 
                 if (result.status === 'success' && result.data && result.data.length > 0) {
                     const vehicles = result.data;
-                    showNotification(`📂 ${vehicles.length} kendaraan dimuat!`, 'success');
+                    showNotification('📂 ' + vehicles.length + ' kendaraan dimuat!', 'success');
                     
                     const firstVehicle = vehicles[vehicles.length - 1];
                     document.getElementById('vehicleTitle').textContent = firstVehicle['Nama Kendaraan'] || '';
@@ -814,20 +799,20 @@
                 const cells = row.querySelectorAll('td');
                 const rowData = {
                     odometer: cells[0].querySelector('input') ? cells[0].querySelector('input').value : cells[0].textContent,
-                    oli: cells[1].querySelector('input')?.checked || false,
-                    solar: cells[2].querySelector('input')?.checked || false,
-                    udara: cells[3].querySelector('input')?.checked || false,
-                    ac: cells[4].querySelector('input')?.checked || false,
-                    atf: cells[5].querySelector('input')?.checked || false,
-                    injektor: cells[6].querySelector('input')?.checked || false,
-                    ps: cells[7].querySelector('input')?.checked || false,
-                    coolant: cells[8].querySelector('input')?.checked || false,
-                    rem: cells[9].querySelector('input')?.checked || false,
-                    statusDone: cells[10].querySelector('input')?.checked || false,
-                    statusPending: cells[11].querySelector('input')?.checked || false,
-                    tanggal: cells[12].querySelector('input')?.value || '',
-                    odometerDone: cells[13].querySelector('input')?.value || '',
-                    catatan: cells[14].querySelector('input')?.value || '',
+                    oli: cells[1].querySelector('input').checked || false,
+                    solar: cells[2].querySelector('input').checked || false,
+                    udara: cells[3].querySelector('input').checked || false,
+                    ac: cells[4].querySelector('input').checked || false,
+                    atf: cells[5].querySelector('input').checked || false,
+                    injektor: cells[6].querySelector('input').checked || false,
+                    ps: cells[7].querySelector('input').checked || false,
+                    coolant: cells[8].querySelector('input').checked || false,
+                    rem: cells[9].querySelector('input').checked || false,
+                    statusDone: cells[10].querySelector('input').checked || false,
+                    statusPending: cells[11].querySelector('input').checked || false,
+                    tanggal: cells[12].querySelector('input').value || '',
+                    odometerDone: cells[13].querySelector('input').value || '',
+                    catatan: cells[14].querySelector('input').value || '',
                     isManual: row.dataset.manual === 'true'
                 };
                 data.rows.push(rowData);
@@ -837,7 +822,7 @@
             const cloudSuccess = await sendToGoogleSheets(data);
 
             const now = new Date();
-            document.getElementById('lastSaved').textContent = `Terakhir disimpan: ${now.toLocaleString('id-ID')}`;
+            document.getElementById('lastSaved').textContent = 'Terakhir disimpan: ' + now.toLocaleString('id-ID');
 
             if (!cloudSuccess) {
                 showNotification('💾 Data disimpan lokal', 'info');
@@ -857,10 +842,10 @@
                 document.getElementById('customVehicleName').value = data.customVehicleName || '';
 
                 const now = new Date();
-                document.getElementById('lastSaved').textContent = `Terakhir dimuat: ${now.toLocaleString('id-ID')}`;
+                document.getElementById('lastSaved').textContent = 'Terakhir dimuat: ' + now.toLocaleString('id-ID');
                 showNotification('📂 Data lokal dimuat!', 'info');
             } else {
-                showNotification('️ Tidak ada data tersimpan', 'error');
+                showNotification('⚠️ Tidak ada data tersimpan', 'error');
             }
         }
 
@@ -933,7 +918,7 @@
                 <td><input type="text" placeholder="DD-MM-YYYY"></td>
                 <td><input type="text" placeholder="km"></td>
                 <td><input type="text" placeholder="Catatan..."></td>
-                <td><button class="btn-delete" onclick="deleteRow(this)">🗑️</button></td>
+                <td><button class="btn-delete" onclick="deleteRow(this)">️</button></td>
             `;
             tbody.insertBefore(tr, tbody.firstChild);
             showNotification('➕ Baris manual ditambahkan!', 'success');
@@ -948,7 +933,7 @@
 
         function exportToCSV() {
             const vehicleTitle = document.getElementById('vehicleTitle').textContent;
-            let csv = `Vehicle: ${vehicleTitle}\n\n`;
+            let csv = 'Vehicle: ' + vehicleTitle + '\n\n';
             csv += 'Odometer,Oli,Solar,Udara,AC,ATF,Injektor,PS,Coolant,Rem,Sudah,Belum,Tanggal,Odo_Done,Catatan\n';
 
             const rows = document.querySelectorAll('#tableBody tr');
@@ -957,19 +942,19 @@
                 const odo = cells[0].querySelector('input') ? cells[0].querySelector('input').value : cells[0].textContent;
                 const values = [];
                 for (let i = 1; i <= 11; i++) {
-                    values.push(cells[i].querySelector('input')?.checked ? 'Ya' : 'Tidak');
+                    values.push(cells[i].querySelector('input').checked ? 'Ya' : 'Tidak');
                 }
-                values.push(cells[12].querySelector('input')?.value || '');
-                values.push(cells[13].querySelector('input')?.value || '');
-                values.push(cells[14].querySelector('input')?.value || '');
-                csv += `${odo},${values.join(',')}\n`;
+                values.push(cells[12].querySelector('input').value || '');
+                values.push(cells[13].querySelector('input').value || '');
+                values.push(cells[14].querySelector('input').value || '');
+                csv += odo + ',' + values.join(',') + '\n';
             });
 
             const blob = new Blob([csv], { type: 'text/csv' });
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
-            a.download = `maintenance_${vehicleTitle.replace(/\s+/g, '_')}_${new Date().toISOString().split('T')[0]}.csv`;
+            a.download = 'maintenance_' + vehicleTitle.replace(/\s+/g, '_') + '_' + new Date().toISOString().split('T')[0] + '.csv';
             a.click();
             showNotification('📊 CSV diexport!', 'success');
         }
@@ -977,7 +962,7 @@
         function showNotification(message, type) {
             const notif = document.getElementById('notification');
             notif.textContent = message;
-            notif.className = `notification ${type}`;
+            notif.className = 'notification ' + type;
             notif.style.display = 'block';
             setTimeout(() => { notif.style.display = 'none'; }, 3000);
         }
