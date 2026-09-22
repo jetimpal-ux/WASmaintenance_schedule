@@ -243,7 +243,7 @@
             </div>
             <div style="display:flex; gap:5px; align-items:flex-end;">
                 <button class="btn-print" onclick="printSelectedRange()" style="padding:6px 12px; font-size:11px;">🖨️ Print Range</button>
-                <button class="btn-edit" onclick="document.getElementById('printRangeSelector').style.display='none'" style="padding:6px 12px; font-size:11px;">✕ Tutup</button>
+                <button class="btn-edit" onclick="document.getElementById('printRangeSelector').style.display='none'" style="padding:6px 12px; font-size:11px;"> Tutup</button>
             </div>
         </div>
         <p style="color:#b0bec5; font-size:10px; margin-top:5px;">💡 Tips: Pilih range 150.000-250.000 (21 baris) agar muat 1 lembar A4</p>
@@ -252,7 +252,7 @@
     <div class="toolbar">
         <button class="btn-save" onclick="saveData()">💾 Simpan</button>
         <button class="btn-cloud" onclick="loadFromGoogleSheets()">☁️ Load dari Cloud</button>
-        <button class="btn-edit" onclick="toggleEdit()">✏️ Edit</button>
+        <button class="btn-edit" onclick="toggleEdit()">️ Edit</button>
         <button class="btn-print" onclick="showPrintOptions()">🖨️ Print</button>
         <button class="btn-add-row" onclick="addManualRow()">➕ Tambah Baris</button>
         <button class="btn-save" onclick="exportToCSV()" style="background:#607d8b;">📊 Export CSV</button>
@@ -297,66 +297,66 @@
                 </tr>
             </thead>
             <tbody id="tableBody">
-                <tr class="manual-row" data-manual="true">
-                    <td><input type="text" class="editable" placeholder="Odometer (km)"></td>
-                    <td><input type="checkbox" class="checkbox-done"></td>
-                    <td><input type="checkbox" class="checkbox-done"></td>
-                    <td><input type="checkbox" class="checkbox-done"></td>
-                    <td><input type="checkbox" class="checkbox-done"></td>
-                    <td><input type="checkbox" class="checkbox-done"></td>
-                    <td><input type="checkbox" class="checkbox-done"></td>
-                    <td><input type="checkbox" class="checkbox-done"></td>
-                    <td><input type="checkbox" class="checkbox-done"></td>
-                    <td><input type="checkbox" class="checkbox-done"></td>
-                    <td><input type="checkbox" class="checkbox-done" title="Sudah"></td>
-                    <td><input type="checkbox" class="checkbox-pending" title="Belum"></td>
-                    <td><input type="text" placeholder="DD-MM-YYYY"></td>
-                    <td><input type="text" placeholder="km"></td>
-                    <td><input type="text" placeholder="Catatan..."></td>
-                    <td><button class="btn-delete" onclick="deleteRow(this)">🗑️</button></td>
+                <tr class="manual-row" data-manual="true" data-row-index="0">
+                    <td><input type="text" class="editable" name="odometer_manual_0" id="odometer_manual_0" placeholder="Odometer (km)" aria-label="Odometer manual 0"></td>
+                    <td><input type="checkbox" class="checkbox-done" name="oli_manual_0" id="oli_manual_0" aria-label="Oli manual 0"></td>
+                    <td><input type="checkbox" class="checkbox-done" name="solar_manual_0" id="solar_manual_0" aria-label="Solar manual 0"></td>
+                    <td><input type="checkbox" class="checkbox-done" name="udara_manual_0" id="udara_manual_0" aria-label="Udara manual 0"></td>
+                    <td><input type="checkbox" class="checkbox-done" name="ac_manual_0" id="ac_manual_0" aria-label="AC manual 0"></td>
+                    <td><input type="checkbox" class="checkbox-done" name="atf_manual_0" id="atf_manual_0" aria-label="ATF manual 0"></td>
+                    <td><input type="checkbox" class="checkbox-done" name="injektor_manual_0" id="injektor_manual_0" aria-label="Injektor manual 0"></td>
+                    <td><input type="checkbox" class="checkbox-done" name="ps_manual_0" id="ps_manual_0" aria-label="PS manual 0"></td>
+                    <td><input type="checkbox" class="checkbox-done" name="coolant_manual_0" id="coolant_manual_0" aria-label="Coolant manual 0"></td>
+                    <td><input type="checkbox" class="checkbox-done" name="rem_manual_0" id="rem_manual_0" aria-label="Rem manual 0"></td>
+                    <td><input type="checkbox" class="checkbox-done" name="status_done_manual_0" id="status_done_manual_0" aria-label="Status sudah manual 0"></td>
+                    <td><input type="checkbox" class="checkbox-pending" name="status_pending_manual_0" id="status_pending_manual_0" aria-label="Status belum manual 0"></td>
+                    <td><input type="text" name="tanggal_manual_0" id="tanggal_manual_0" placeholder="DD-MM-YYYY" aria-label="Tanggal manual 0"></td>
+                    <td><input type="text" name="odo_done_manual_0" id="odo_done_manual_0" placeholder="km" aria-label="Odo done manual 0"></td>
+                    <td><input type="text" name="catatan_manual_0" id="catatan_manual_0" placeholder="Catatan..." aria-label="Catatan manual 0"></td>
+                    <td><button class="btn-delete" onclick="deleteRow(this)" aria-label="Hapus baris">🗑️</button></td>
                 </tr>
-                <tr class="manual-row" data-manual="true">
-                    <td><input type="text" class="editable" placeholder="Odometer (km)"></td>
-                    <td><input type="checkbox" class="checkbox-done"></td>
-                    <td><input type="checkbox" class="checkbox-done"></td>
-                    <td><input type="checkbox" class="checkbox-done"></td>
-                    <td><input type="checkbox" class="checkbox-done"></td>
-                    <td><input type="checkbox" class="checkbox-done"></td>
-                    <td><input type="checkbox" class="checkbox-done"></td>
-                    <td><input type="checkbox" class="checkbox-done"></td>
-                    <td><input type="checkbox" class="checkbox-done"></td>
-                    <td><input type="checkbox" class="checkbox-done"></td>
-                    <td><input type="checkbox" class="checkbox-done" title="Sudah"></td>
-                    <td><input type="checkbox" class="checkbox-pending" title="Belum"></td>
-                    <td><input type="text" placeholder="DD-MM-YYYY"></td>
-                    <td><input type="text" placeholder="km"></td>
-                    <td><input type="text" placeholder="Catatan..."></td>
-                    <td><button class="btn-delete" onclick="deleteRow(this)">🗑️</button></td>
+                <tr class="manual-row" data-manual="true" data-row-index="1">
+                    <td><input type="text" class="editable" name="odometer_manual_1" id="odometer_manual_1" placeholder="Odometer (km)" aria-label="Odometer manual 1"></td>
+                    <td><input type="checkbox" class="checkbox-done" name="oli_manual_1" id="oli_manual_1" aria-label="Oli manual 1"></td>
+                    <td><input type="checkbox" class="checkbox-done" name="solar_manual_1" id="solar_manual_1" aria-label="Solar manual 1"></td>
+                    <td><input type="checkbox" class="checkbox-done" name="udara_manual_1" id="udara_manual_1" aria-label="Udara manual 1"></td>
+                    <td><input type="checkbox" class="checkbox-done" name="ac_manual_1" id="ac_manual_1" aria-label="AC manual 1"></td>
+                    <td><input type="checkbox" class="checkbox-done" name="atf_manual_1" id="atf_manual_1" aria-label="ATF manual 1"></td>
+                    <td><input type="checkbox" class="checkbox-done" name="injektor_manual_1" id="injektor_manual_1" aria-label="Injektor manual 1"></td>
+                    <td><input type="checkbox" class="checkbox-done" name="ps_manual_1" id="ps_manual_1" aria-label="PS manual 1"></td>
+                    <td><input type="checkbox" class="checkbox-done" name="coolant_manual_1" id="coolant_manual_1" aria-label="Coolant manual 1"></td>
+                    <td><input type="checkbox" class="checkbox-done" name="rem_manual_1" id="rem_manual_1" aria-label="Rem manual 1"></td>
+                    <td><input type="checkbox" class="checkbox-done" name="status_done_manual_1" id="status_done_manual_1" aria-label="Status sudah manual 1"></td>
+                    <td><input type="checkbox" class="checkbox-pending" name="status_pending_manual_1" id="status_pending_manual_1" aria-label="Status belum manual 1"></td>
+                    <td><input type="text" name="tanggal_manual_1" id="tanggal_manual_1" placeholder="DD-MM-YYYY" aria-label="Tanggal manual 1"></td>
+                    <td><input type="text" name="odo_done_manual_1" id="odo_done_manual_1" placeholder="km" aria-label="Odo done manual 1"></td>
+                    <td><input type="text" name="catatan_manual_1" id="catatan_manual_1" placeholder="Catatan..." aria-label="Catatan manual 1"></td>
+                    <td><button class="btn-delete" onclick="deleteRow(this)" aria-label="Hapus baris">🗑️</button></td>
                 </tr>
-                <tr class="manual-row" data-manual="true">
-                    <td><input type="text" class="editable" placeholder="Odometer (km)"></td>
-                    <td><input type="checkbox" class="checkbox-done"></td>
-                    <td><input type="checkbox" class="checkbox-done"></td>
-                    <td><input type="checkbox" class="checkbox-done"></td>
-                    <td><input type="checkbox" class="checkbox-done"></td>
-                    <td><input type="checkbox" class="checkbox-done"></td>
-                    <td><input type="checkbox" class="checkbox-done"></td>
-                    <td><input type="checkbox" class="checkbox-done"></td>
-                    <td><input type="checkbox" class="checkbox-done"></td>
-                    <td><input type="checkbox" class="checkbox-done"></td>
-                    <td><input type="checkbox" class="checkbox-done" title="Sudah"></td>
-                    <td><input type="checkbox" class="checkbox-pending" title="Belum"></td>
-                    <td><input type="text" placeholder="DD-MM-YYYY"></td>
-                    <td><input type="text" placeholder="km"></td>
-                    <td><input type="text" placeholder="Catatan..."></td>
-                    <td><button class="btn-delete" onclick="deleteRow(this)">🗑️</button></td>
+                <tr class="manual-row" data-manual="true" data-row-index="2">
+                    <td><input type="text" class="editable" name="odometer_manual_2" id="odometer_manual_2" placeholder="Odometer (km)" aria-label="Odometer manual 2"></td>
+                    <td><input type="checkbox" class="checkbox-done" name="oli_manual_2" id="oli_manual_2" aria-label="Oli manual 2"></td>
+                    <td><input type="checkbox" class="checkbox-done" name="solar_manual_2" id="solar_manual_2" aria-label="Solar manual 2"></td>
+                    <td><input type="checkbox" class="checkbox-done" name="udara_manual_2" id="udara_manual_2" aria-label="Udara manual 2"></td>
+                    <td><input type="checkbox" class="checkbox-done" name="ac_manual_2" id="ac_manual_2" aria-label="AC manual 2"></td>
+                    <td><input type="checkbox" class="checkbox-done" name="atf_manual_2" id="atf_manual_2" aria-label="ATF manual 2"></td>
+                    <td><input type="checkbox" class="checkbox-done" name="injektor_manual_2" id="injektor_manual_2" aria-label="Injektor manual 2"></td>
+                    <td><input type="checkbox" class="checkbox-done" name="ps_manual_2" id="ps_manual_2" aria-label="PS manual 2"></td>
+                    <td><input type="checkbox" class="checkbox-done" name="coolant_manual_2" id="coolant_manual_2" aria-label="Coolant manual 2"></td>
+                    <td><input type="checkbox" class="checkbox-done" name="rem_manual_2" id="rem_manual_2" aria-label="Rem manual 2"></td>
+                    <td><input type="checkbox" class="checkbox-done" name="status_done_manual_2" id="status_done_manual_2" aria-label="Status sudah manual 2"></td>
+                    <td><input type="checkbox" class="checkbox-pending" name="status_pending_manual_2" id="status_pending_manual_2" aria-label="Status belum manual 2"></td>
+                    <td><input type="text" name="tanggal_manual_2" id="tanggal_manual_2" placeholder="DD-MM-YYYY" aria-label="Tanggal manual 2"></td>
+                    <td><input type="text" name="odo_done_manual_2" id="odo_done_manual_2" placeholder="km" aria-label="Odo done manual 2"></td>
+                    <td><input type="text" name="catatan_manual_2" id="catatan_manual_2" placeholder="Catatan..." aria-label="Catatan manual 2"></td>
+                    <td><button class="btn-delete" onclick="deleteRow(this)" aria-label="Hapus baris">🗑️</button></td>
                 </tr>
             </tbody>
         </table>
     </div>
 
     <div class="footer-info">
-        <h3>📋 CATATAN PENTING:</h3>
+        <h3> CATATAN PENTING:</h3>
         <ul>
             <li>Interval berdasarkan kondisi normal pemakaian.</li>
             <li>Gunakan suku cadang dan fluida berkualitas sesuai spesifikasi.</li>
@@ -368,20 +368,20 @@
 
         <div class="vin-section">
             <div>
-                <label>NOMOR RANGKA (VIN)</label>
-                <input type="text" id="vinNumber" placeholder="Masukkan Nomor Rangka...">
+                <label for="vinNumber">NOMOR RANGKA (VIN)</label>
+                <input type="text" id="vinNumber" name="vinNumber" placeholder="Masukkan Nomor Rangka...">
             </div>
             <div>
-                <label>NAMA PEMILIK</label>
-                <input type="text" id="ownerName" placeholder="Masukkan Nama Pemilik...">
+                <label for="ownerName">NAMA PEMILIK</label>
+                <input type="text" id="ownerName" name="ownerName" placeholder="Masukkan Nama Pemilik...">
             </div>
             <div>
-                <label>NO. POLISI</label>
-                <input type="text" id="plateNumber" placeholder="Masukkan No. Polisi...">
+                <label for="plateNumber">NO. POLISI</label>
+                <input type="text" id="plateNumber" name="plateNumber" placeholder="Masukkan No. Polisi...">
             </div>
             <div>
-                <label>MODEL KENDARAAN</label>
-                <input type="text" id="vehicleModel" placeholder="Masukkan Model Kendaraan..." oninput="syncVehicleTitle()">
+                <label for="vehicleModel">MODEL KENDARAAN</label>
+                <input type="text" id="vehicleModel" name="vehicleModel" placeholder="Masukkan Model Kendaraan..." oninput="syncVehicleTitle()">
             </div>
         </div>
     </div>
@@ -397,6 +397,7 @@
 
         var editMode = false;
         var currentVehicleId = null;
+        var rowIndex = 3; // Mulai dari 3 karena ada 3 baris manual
 
         // ============================================
         // GENERATE BARIS JADWAL 150.000 - 400.000 km
@@ -410,6 +411,7 @@
             for (var odo = startOdo; odo <= endOdo; odo += step) {
                 var tr = document.createElement('tr');
                 tr.dataset.odometer = odo;
+                tr.dataset.rowIndex = rowIndex;
 
                 var oliCheck = true;
                 var solarCheck = (odo % 10000 === 0);
@@ -421,23 +423,29 @@
                 var coolantCheck = [250000, 350000].indexOf(odo) !== -1;
                 var remCheck = [250000, 350000].indexOf(odo) !== -1;
 
-                tr.innerHTML = '<td class="odometer-cell">' + odo.toLocaleString('id-ID') + '</td>' +
-                    '<td><input type="checkbox" class="checkbox-done" ' + (oliCheck ? 'checked' : '') + '></td>' +
-                    '<td><input type="checkbox" class="checkbox-done" ' + (solarCheck ? 'checked' : '') + '></td>' +
-                    '<td><input type="checkbox" class="checkbox-done" ' + (udaraCheck ? 'checked' : '') + '></td>' +
-                    '<td><input type="checkbox" class="checkbox-done" ' + (acCheck ? 'checked' : '') + '></td>' +
-                    '<td><input type="checkbox" class="checkbox-done" ' + (atfCheck ? 'checked' : '') + '></td>' +
-                    '<td><input type="checkbox" class="checkbox-done" ' + (injektorCheck ? 'checked' : '') + '></td>' +
-                    '<td><input type="checkbox" class="checkbox-done" ' + (psCheck ? 'checked' : '') + '></td>' +
-                    '<td><input type="checkbox" class="checkbox-done" ' + (coolantCheck ? 'checked' : '') + '></td>' +
-                    '<td><input type="checkbox" class="checkbox-done" ' + (remCheck ? 'checked' : '') + '></td>' +
-                    '<td><input type="checkbox" class="checkbox-done" title="Sudah"></td>' +
-                    '<td><input type="checkbox" class="checkbox-pending" title="Belum"></td>' +
-                    '<td><input type="text" placeholder="DD-MM-YYYY"></td>' +
-                    '<td><input type="text" placeholder="km"></td>' +
-                    '<td><input type="text" placeholder="Catatan..."></td>' +
-                    '<td><button class="btn-delete" onclick="resetRow(this)" title="Reset">🔄</button></td>';
+                var r = rowIndex;
+                var odoFormatted = odo.toLocaleString('id-ID');
+                
+                tr.innerHTML = 
+                    '<td class="odometer-cell">' + odoFormatted + '</td>' +
+                    '<td><input type="checkbox" class="checkbox-done" name="oli_' + r + '" id="oli_' + r + '" aria-label="Oli Engine ' + odoFormatted + '" ' + (oliCheck ? 'checked' : '') + '></td>' +
+                    '<td><input type="checkbox" class="checkbox-done" name="solar_' + r + '" id="solar_' + r + '" aria-label="Filter Solar ' + odoFormatted + '" ' + (solarCheck ? 'checked' : '') + '></td>' +
+                    '<td><input type="checkbox" class="checkbox-done" name="udara_' + r + '" id="udara_' + r + '" aria-label="Filter Udara ' + odoFormatted + '" ' + (udaraCheck ? 'checked' : '') + '></td>' +
+                    '<td><input type="checkbox" class="checkbox-done" name="ac_' + r + '" id="ac_' + r + '" aria-label="Filter AC ' + odoFormatted + '" ' + (acCheck ? 'checked' : '') + '></td>' +
+                    '<td><input type="checkbox" class="checkbox-done" name="atf_' + r + '" id="atf_' + r + '" aria-label="ATF ' + odoFormatted + '" ' + (atfCheck ? 'checked' : '') + '></td>' +
+                    '<td><input type="checkbox" class="checkbox-done" name="injektor_' + r + '" id="injektor_' + r + '" aria-label="Injektor ' + odoFormatted + '" ' + (injektorCheck ? 'checked' : '') + '></td>' +
+                    '<td><input type="checkbox" class="checkbox-done" name="ps_' + r + '" id="ps_' + r + '" aria-label="Power Steering ' + odoFormatted + '" ' + (psCheck ? 'checked' : '') + '></td>' +
+                    '<td><input type="checkbox" class="checkbox-done" name="coolant_' + r + '" id="coolant_' + r + '" aria-label="Coolant ' + odoFormatted + '" ' + (coolantCheck ? 'checked' : '') + '></td>' +
+                    '<td><input type="checkbox" class="checkbox-done" name="rem_' + r + '" id="rem_' + r + '" aria-label="Minyak Rem ' + odoFormatted + '" ' + (remCheck ? 'checked' : '') + '></td>' +
+                    '<td><input type="checkbox" class="checkbox-done" name="status_done_' + r + '" id="status_done_' + r + '" aria-label="Status Sudah ' + odoFormatted + '"></td>' +
+                    '<td><input type="checkbox" class="checkbox-pending" name="status_pending_' + r + '" id="status_pending_' + r + '" aria-label="Status Belum ' + odoFormatted + '"></td>' +
+                    '<td><input type="text" name="tanggal_' + r + '" id="tanggal_' + r + '" placeholder="DD-MM-YYYY" aria-label="Tanggal ' + odoFormatted + '"></td>' +
+                    '<td><input type="text" name="odo_done_' + r + '" id="odo_done_' + r + '" placeholder="km" aria-label="Odometer saat dilakukan ' + odoFormatted + '"></td>' +
+                    '<td><input type="text" name="catatan_' + r + '" id="catatan_' + r + '" placeholder="Catatan..." aria-label="Catatan ' + odoFormatted + '"></td>' +
+                    '<td><button class="btn-delete" onclick="resetRow(this)" title="Reset baris ' + odoFormatted + '" aria-label="Reset baris ' + odoFormatted + '">🔄</button></td>';
+                
                 tbody.appendChild(tr);
+                rowIndex++;
             }
         }
 
@@ -538,7 +546,7 @@
             } catch (error) {
                 dot.className = 'status-dot';
                 text.textContent = 'Google Sheets: Gagal terhubung';
-                showNotification('❌ Gagal: ' + error.message, 'error');
+                showNotification(' Gagal: ' + error.message, 'error');
                 return false;
             }
         }
@@ -575,7 +583,7 @@
                         dot.className = 'status-dot connected';
                         text.textContent = 'Google Sheets: Terhubung ✓';
                     } else {
-                        showNotification('📭 Belum ada data di Google Sheets', 'info');
+                        showNotification(' Belum ada data di Google Sheets', 'info');
                         dot.className = 'status-dot';
                         text.textContent = 'Google Sheets: Tidak ada data';
                     }
@@ -648,7 +656,7 @@
 
                 var now = new Date();
                 document.getElementById('lastSaved').textContent = 'Terakhir dimuat: ' + now.toLocaleString('id-ID');
-                showNotification(' Data lokal dimuat!', 'info');
+                showNotification('📂 Data lokal dimuat!', 'info');
             }
         }
 
@@ -665,7 +673,7 @@
             var toKm = parseInt(document.getElementById('printTo').value);
 
             if (fromKm >= toKm) {
-                showNotification('⚠️ Nilai "Dari" harus lebih kecil dari "Sampai"!', 'error');
+                showNotification('️ Nilai "Dari" harus lebih kecil dari "Sampai"!', 'error');
                 return;
             }
 
@@ -706,24 +714,30 @@
             var tr = document.createElement('tr');
             tr.className = 'manual-row';
             tr.dataset.manual = 'true';
-            tr.innerHTML = '<td><input type="text" class="editable" placeholder="Odometer (km)"></td>' +
-                '<td><input type="checkbox" class="checkbox-done"></td>' +
-                '<td><input type="checkbox" class="checkbox-done"></td>' +
-                '<td><input type="checkbox" class="checkbox-done"></td>' +
-                '<td><input type="checkbox" class="checkbox-done"></td>' +
-                '<td><input type="checkbox" class="checkbox-done"></td>' +
-                '<td><input type="checkbox" class="checkbox-done"></td>' +
-                '<td><input type="checkbox" class="checkbox-done"></td>' +
-                '<td><input type="checkbox" class="checkbox-done"></td>' +
-                '<td><input type="checkbox" class="checkbox-done"></td>' +
-                '<td><input type="checkbox" class="checkbox-done" title="Sudah"></td>' +
-                '<td><input type="checkbox" class="checkbox-pending" title="Belum"></td>' +
-                '<td><input type="text" placeholder="DD-MM-YYYY"></td>' +
-                '<td><input type="text" placeholder="km"></td>' +
-                '<td><input type="text" placeholder="Catatan..."></td>' +
-                '<td><button class="btn-delete" onclick="deleteRow(this)">🗑️</button></td>';
+            tr.dataset.rowIndex = rowIndex;
+            
+            var r = rowIndex;
+            tr.innerHTML = 
+                '<td><input type="text" class="editable" name="odometer_manual_' + r + '" id="odometer_manual_' + r + '" placeholder="Odometer (km)" aria-label="Odometer manual ' + r + '"></td>' +
+                '<td><input type="checkbox" class="checkbox-done" name="oli_manual_' + r + '" id="oli_manual_' + r + '" aria-label="Oli manual ' + r + '"></td>' +
+                '<td><input type="checkbox" class="checkbox-done" name="solar_manual_' + r + '" id="solar_manual_' + r + '" aria-label="Solar manual ' + r + '"></td>' +
+                '<td><input type="checkbox" class="checkbox-done" name="udara_manual_' + r + '" id="udara_manual_' + r + '" aria-label="Udara manual ' + r + '"></td>' +
+                '<td><input type="checkbox" class="checkbox-done" name="ac_manual_' + r + '" id="ac_manual_' + r + '" aria-label="AC manual ' + r + '"></td>' +
+                '<td><input type="checkbox" class="checkbox-done" name="atf_manual_' + r + '" id="atf_manual_' + r + '" aria-label="ATF manual ' + r + '"></td>' +
+                '<td><input type="checkbox" class="checkbox-done" name="injektor_manual_' + r + '" id="injektor_manual_' + r + '" aria-label="Injektor manual ' + r + '"></td>' +
+                '<td><input type="checkbox" class="checkbox-done" name="ps_manual_' + r + '" id="ps_manual_' + r + '" aria-label="PS manual ' + r + '"></td>' +
+                '<td><input type="checkbox" class="checkbox-done" name="coolant_manual_' + r + '" id="coolant_manual_' + r + '" aria-label="Coolant manual ' + r + '"></td>' +
+                '<td><input type="checkbox" class="checkbox-done" name="rem_manual_' + r + '" id="rem_manual_' + r + '" aria-label="Rem manual ' + r + '"></td>' +
+                '<td><input type="checkbox" class="checkbox-done" name="status_done_manual_' + r + '" id="status_done_manual_' + r + '" aria-label="Status sudah manual ' + r + '"></td>' +
+                '<td><input type="checkbox" class="checkbox-pending" name="status_pending_manual_' + r + '" id="status_pending_manual_' + r + '" aria-label="Status belum manual ' + r + '"></td>' +
+                '<td><input type="text" name="tanggal_manual_' + r + '" id="tanggal_manual_' + r + '" placeholder="DD-MM-YYYY" aria-label="Tanggal manual ' + r + '"></td>' +
+                '<td><input type="text" name="odo_done_manual_' + r + '" id="odo_done_manual_' + r + '" placeholder="km" aria-label="Odo done manual ' + r + '"></td>' +
+                '<td><input type="text" name="catatan_manual_' + r + '" id="catatan_manual_' + r + '" placeholder="Catatan..." aria-label="Catatan manual ' + r + '"></td>' +
+                '<td><button class="btn-delete" onclick="deleteRow(this)" aria-label="Hapus baris manual ' + r + '">🗑️</button></td>';
+            
             tbody.insertBefore(tr, tbody.firstChild);
-            showNotification(' Baris manual ditambahkan!', 'success');
+            rowIndex++;
+            showNotification('➕ Baris manual ditambahkan!', 'success');
         }
 
         function deleteRow(btn) {
@@ -743,7 +757,7 @@
             for (var i = 0; i < inputs.length; i++) {
                 inputs[i].value = '';
             }
-            showNotification('🔄 Baris direset!', 'info');
+            showNotification(' Baris direset!', 'info');
         }
 
         function exportToCSV() {
@@ -772,7 +786,7 @@
             a.href = url;
             a.download = 'maintenance_' + vehicleTitle.replace(/\s+/g, '_') + '_' + new Date().toISOString().split('T')[0] + '.csv';
             a.click();
-            showNotification('📊 CSV diexport!', 'success');
+            showNotification(' CSV diexport!', 'success');
         }
 
         function showNotification(message, type) {
