@@ -18,44 +18,24 @@
             background: linear-gradient(135deg, #0d47a1, #1565c0);
             border-radius: 10px 10px 0 0;
         }
-        .header h1 {
-            font-size: 20px;
-            color: #ffd700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
+        .header h1 { font-size: 20px; color: #ffd700; text-transform: uppercase; letter-spacing: 2px; }
         .header h2 {
-            font-size: 16px;
-            color: #fff;
-            margin-top: 10px;
-            padding: 10px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 5px;
-            cursor: text;
-            border: 2px dashed transparent;
-            transition: all 0.3s;
+            font-size: 16px; color: #fff; margin-top: 10px; padding: 10px;
+            background: rgba(255,255,255,0.1); border-radius: 5px; cursor: text;
+            border: 2px dashed transparent; transition: all 0.3s;
         }
         .header h2:hover { border-color: #ffd700; background: rgba(255,255,255,0.2); }
         .header h2:focus { outline: none; border-color: #ffd700; background: rgba(255,255,255,0.3); }
         .header p { color: #b0bec5; font-size: 11px; margin-top: 5px; }
         .edit-hint { font-size: 10px; color: #ffd700; margin-top: 5px; font-style: italic; }
-        
+
         .toolbar {
-            display: flex;
-            gap: 8px;
-            padding: 12px 15px;
-            background: #16213e;
-            flex-wrap: wrap;
-            align-items: center;
+            display: flex; gap: 8px; padding: 12px 15px;
+            background: #16213e; flex-wrap: wrap; align-items: center;
         }
         .toolbar button {
-            padding: 8px 15px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-            font-size: 12px;
-            transition: all 0.3s;
+            padding: 8px 15px; border: none; border-radius: 5px;
+            cursor: pointer; font-weight: bold; font-size: 12px; transition: all 0.3s;
         }
         .btn-save { background: #4caf50; color: white; }
         .btn-save:hover { background: #388e3c; }
@@ -69,56 +49,24 @@
         .btn-delete:hover { background: #d32f2f; }
         .btn-cloud { background: #00bcd4; color: white; }
         .btn-cloud:hover { background: #00838f; }
-        
+
         .print-range-selector {
-            padding: 10px 15px;
-            background: #0f3460;
-            border-radius: 8px;
-            margin: 10px 0;
-            display: none;
-        }
-        .print-range-selector label {
-            color: #ffd700;
-            font-weight: bold;
-            font-size: 12px;
+            padding: 10px 15px; background: #0f3460;
+            border-radius: 8px; margin: 10px 0; display: none;
         }
         .print-range-selector select {
-            padding: 6px;
-            border-radius: 4px;
-            border: 1px solid #455a64;
-            background: #1a1a2e;
-            color: #fff;
-            font-size: 11px;
+            padding: 6px; border-radius: 4px; border: 1px solid #455a64;
+            background: #1a1a2e; color: #fff; font-size: 11px;
         }
-        
-        .table-container {
-            overflow-x: auto;
-            background: #fff;
-            border-radius: 0 0 10px 10px;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 11px;
-            min-width: 1400px;
-        }
+
+        .table-container { overflow-x: auto; background: #fff; border-radius: 0 0 10px 10px; }
+        table { width: 100%; border-collapse: collapse; font-size: 11px; min-width: 1400px; }
         thead th {
-            background: #0d47a1;
-            color: white;
-            padding: 8px 4px;
-            text-align: center;
-            border: 1px solid #1565c0;
-            font-size: 10px;
-            position: sticky;
-            top: 0;
-            z-index: 10;
+            background: #0d47a1; color: white; padding: 8px 4px;
+            text-align: center; border: 1px solid #1565c0; font-size: 10px;
+            position: sticky; top: 0; z-index: 10;
         }
-        thead th .sub-header {
-            font-size: 9px;
-            color: #b0bec5;
-            display: block;
-            margin-top: 3px;
-        }
+        thead th .sub-header { font-size: 9px; color: #b0bec5; display: block; margin-top: 3px; }
         .col-odometer { background: #ffd700; color: #000; font-weight: bold; }
         .col-oli { background: #2e7d32; }
         .col-solar { background: #1565c0; }
@@ -131,157 +79,78 @@
         .col-rem { background: #b71c1c; }
         .col-status { background: #37474f; }
         .col-realisasi { background: #0d47a1; }
-        
-        tbody td {
-            border: 1px solid #e0e0e0;
-            padding: 4px;
-            text-align: center;
-            color: #333;
-        }
+
+        tbody td { border: 1px solid #e0e0e0; padding: 4px; text-align: center; color: #333; }
         tbody tr:nth-child(even) { background: #f5f5f5; }
         tbody tr:nth-child(odd) { background: #fff; }
         tbody tr:hover { background: #e3f2fd; }
         .odometer-cell { font-weight: bold; background: #fff9c4; color: #000; }
-        
+
         input[type="text"], input[type="number"], input[type="date"] {
-            width: 100%;
-            padding: 4px;
-            border: 1px solid #ccc;
-            border-radius: 3px;
-            font-size: 11px;
-            text-align: center;
+            width: 100%; padding: 4px; border: 1px solid #ccc;
+            border-radius: 3px; font-size: 11px; text-align: center;
         }
-        input[type="checkbox"] {
-            width: 18px;
-            height: 18px;
-            cursor: pointer;
-            accent-color: #4caf50;
-        }
+        input[type="checkbox"] { width: 18px; height: 18px; cursor: pointer; accent-color: #4caf50; }
         .checkbox-done { accent-color: #4caf50; }
         .checkbox-pending { accent-color: #f44336; }
         .manual-row { background: #fff3e0 !important; }
         .manual-row td { border: 2px dashed #ff9800; }
-        
-        .footer-info {
-            padding: 15px;
-            background: #16213e;
-            border-radius: 0 0 10px 10px;
-            margin-top: 10px;
-        }
+
+        .footer-info { padding: 15px; background: #16213e; border-radius: 0 0 10px 10px; margin-top: 10px; }
         .footer-info h3 { color: #ffd700; margin-bottom: 10px; font-size: 14px; }
         .footer-info ul { color: #b0bec5; font-size: 11px; padding-left: 20px; }
         .footer-info li { margin-bottom: 5px; }
-        
+
         .vin-section {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            margin-top: 15px;
-            padding: 15px;
-            background: #0f3460;
-            border-radius: 8px;
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 12px; margin-top: 15px; padding: 15px;
+            background: #0f3460; border-radius: 8px;
         }
-        .vin-section label {
-            color: #ffd700;
-            font-size: 11px;
-            font-weight: bold;
-            display: block;
-            margin-bottom: 5px;
-        }
+        .vin-section label { color: #ffd700; font-size: 11px; font-weight: bold; display: block; margin-bottom: 5px; }
         .vin-section input {
-            width: 100%;
-            padding: 8px;
-            border: 1px solid #455a64;
-            border-radius: 4px;
-            background: #1a1a2e;
-            color: #fff;
-            font-size: 12px;
+            width: 100%; padding: 8px; border: 1px solid #455a64;
+            border-radius: 4px; background: #1a1a2e; color: #fff; font-size: 12px;
         }
         .vin-section input:focus { outline: none; border-color: #ffd700; }
-        
+
         .notification {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            padding: 15px 25px;
-            border-radius: 8px;
-            color: white;
-            font-weight: bold;
-            z-index: 1000;
-            display: none;
-            animation: slideIn 0.3s ease;
-            font-size: 14px;
-            max-width: 90%;
+            position: fixed; top: 20px; right: 20px; padding: 15px 25px;
+            border-radius: 8px; color: white; font-weight: bold;
+            z-index: 1000; display: none; animation: slideIn 0.3s ease; font-size: 14px; max-width: 90%;
         }
         .notification.success { background: #4caf50; }
         .notification.error { background: #f44336; }
         .notification.info { background: #2196f3; }
-        @keyframes slideIn {
-            from { transform: translateX(100%); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
-        }
-        
-        .legend {
-            display: flex;
-            gap: 15px;
-            padding: 10px 15px;
-            background: #16213e;
-            flex-wrap: wrap;
-            font-size: 10px;
-        }
+        @keyframes slideIn { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+
+        .legend { display: flex; gap: 15px; padding: 10px 15px; background: #16213e; flex-wrap: wrap; font-size: 10px; }
         .legend-item { display: flex; align-items: center; gap: 5px; }
         .legend-color { width: 15px; height: 15px; border-radius: 3px; }
         .editable { background: #fff9c4; }
-        
+
         .vehicle-selector {
-            padding: 10px 15px;
-            background: #0f3460;
-            display: flex;
-            gap: 10px;
-            align-items: center;
-            flex-wrap: wrap;
+            padding: 10px 15px; background: #0f3460;
+            display: flex; gap: 10px; align-items: center; flex-wrap: wrap;
         }
         .vehicle-selector label { color: #ffd700; font-weight: bold; font-size: 12px; }
         .vehicle-selector select {
-            padding: 8px;
-            border: 1px solid #455a64;
-            border-radius: 4px;
-            background: #1a1a2e;
-            color: #fff;
-            font-size: 12px;
+            padding: 8px; border: 1px solid #455a64; border-radius: 4px;
+            background: #1a1a2e; color: #fff; font-size: 12px;
         }
         .vehicle-selector input {
-            padding: 8px;
-            border: 1px solid #455a64;
-            border-radius: 4px;
-            background: #1a1a2e;
-            color: #fff;
-            font-size: 12px;
-            flex: 1;
-            min-width: 200px;
+            padding: 8px; border: 1px solid #455a64; border-radius: 4px;
+            background: #1a1a2e; color: #fff; font-size: 12px; flex: 1; min-width: 200px;
         }
-        
+
         .connection-status {
-            padding: 8px 15px;
-            background: #16213e;
-            font-size: 11px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            padding: 8px 15px; background: #16213e;
+            font-size: 11px; display: flex; align-items: center; gap: 8px;
         }
-        .status-dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: #f44336;
-        }
+        .status-dot { width: 10px; height: 10px; border-radius: 50%; background: #f44336; }
         .status-dot.connected { background: #4caf50; }
         .status-dot.connecting { background: #ff9800; animation: pulse 1s infinite; }
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.3; }
-        }
-        
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+
         @media (max-width: 768px) {
             .header h1 { font-size: 16px; }
             .header h2 { font-size: 14px; }
@@ -289,151 +158,40 @@
             .toolbar button { padding: 6px 10px; font-size: 11px; }
             .vin-section { grid-template-columns: 1fr; }
         }
-        
-        /* PRINT STYLES */
+
+        /* PRINT STYLES - A4 LANDSCAPE */
         @media print {
-            @page {
-                size: A4 landscape;
-                margin: 8mm;
-            }
-            
-            * {
-                -webkit-print-color-adjust: exact !important;
-                print-color-adjust: exact !important;
-                color-adjust: exact !important;
-            }
-            
-            body {
-                background: white !important;
-                color: black !important;
-                padding: 0 !important;
-                margin: 0 !important;
-                font-size: 6px !important;
-            }
-            
-            .toolbar,
-            .btn-delete,
-            .notification,
-            .edit-hint,
-            .legend,
-            .print-range-selector,
-            .connection-status,
-            .vehicle-selector,
-            .footer-info h3,
-            .footer-info ul,
-            input[type="checkbox"]:not(:checked) {
-                display: none !important;
-            }
-            
-            .header {
-                background: #0d47a1 !important;
-                padding: 6px !important;
-                border-radius: 0 !important;
-                margin-bottom: 3px !important;
-            }
+            @page { size: A4 landscape; margin: 8mm; }
+            * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; color-adjust: exact !important; }
+            body { background: white !important; color: black !important; padding: 0 !important; margin: 0 !important; font-size: 6px !important; }
+            .toolbar, .btn-delete, .notification, .edit-hint, .legend, .print-range-selector, .connection-status, .vehicle-selector, .footer-info h3, .footer-info ul, input[type="checkbox"]:not(:checked) { display: none !important; }
+            .header { background: #0d47a1 !important; padding: 6px !important; border-radius: 0 !important; margin-bottom: 3px !important; }
             .header h1 { font-size: 12px !important; color: #ffd700 !important; margin: 0 !important; }
-            .header h2 {
-                font-size: 10px !important;
-                color: white !important;
-                margin: 2px 0 !important;
-                padding: 2px !important;
-                background: rgba(255,255,255,0.15) !important;
-                border: none !important;
-            }
+            .header h2 { font-size: 10px !important; color: white !important; margin: 2px 0 !important; padding: 2px !important; background: rgba(255,255,255,0.15) !important; border: none !important; }
             .header p { font-size: 7px !important; color: #b0bec5 !important; margin: 1px 0 !important; }
-            
-            .table-container {
-                border-radius: 0 !important;
-                overflow: visible !important;
-            }
-            table {
-                font-size: 5px !important;
-                min-width: auto !important;
-                width: 100% !important;
-                border-collapse: collapse !important;
-            }
-            thead th {
-                background: #0d47a1 !important;
-                color: white !important;
-                padding: 1.5px 1px !important;
-                font-size: 4.5px !important;
-                border: 0.3px solid #1565c0 !important;
-                line-height: 1.1 !important;
-            }
-            thead th .sub-header {
-                font-size: 3.5px !important;
-                color: #e0e0e0 !important;
-                margin-top: 0.5px !important;
-            }
-            tbody td {
-                padding: 1px !important;
-                border: 0.3px solid #ccc !important;
-                font-size: 5px !important;
-                line-height: 1 !important;
-            }
+            .table-container { border-radius: 0 !important; overflow: visible !important; }
+            table { font-size: 5px !important; min-width: auto !important; width: 100% !important; border-collapse: collapse !important; }
+            thead th { background: #0d47a1 !important; color: white !important; padding: 1.5px 1px !important; font-size: 4.5px !important; border: 0.3px solid #1565c0 !important; line-height: 1.1 !important; }
+            thead th .sub-header { font-size: 3.5px !important; color: #e0e0e0 !important; margin-top: 0.5px !important; }
+            tbody td { padding: 1px !important; border: 0.3px solid #ccc !important; font-size: 5px !important; line-height: 1 !important; }
             .odometer-cell { font-size: 5.5px !important; font-weight: bold !important; }
-            
-            input[type="checkbox"] {
-                width: 6px !important;
-                height: 6px !important;
-                margin: 0 !important;
-            }
-            
-            input[type="text"] {
-                font-size: 4.5px !important;
-                padding: 0.5px !important;
-                border: none !important;
-                background: transparent !important;
-            }
-            
-            .footer-info {
-                padding: 4px !important;
-                background: #f5f5f5 !important;
-                border-radius: 0 !important;
-                margin-top: 3px !important;
-            }
-            .vin-section {
-                display: grid !important;
-                grid-template-columns: repeat(4, 1fr) !important;
-                gap: 3px !important;
-                padding: 4px !important;
-                background: #f5f5f5 !important;
-                margin-top: 3px !important;
-            }
-            .vin-section label {
-                color: #0d47a1 !important;
-                font-size: 5px !important;
-                font-weight: bold !important;
-                margin-bottom: 0.5px !important;
-            }
-            .vin-section input {
-                padding: 1px !important;
-                font-size: 6px !important;
-                border: 0.3px solid #ccc !important;
-                background: white !important;
-                color: black !important;
-            }
-            
+            input[type="checkbox"] { width: 6px !important; height: 6px !important; margin: 0 !important; }
+            input[type="text"] { font-size: 4.5px !important; padding: 0.5px !important; border: none !important; background: transparent !important; }
+            .footer-info { padding: 4px !important; background: #f5f5f5 !important; border-radius: 0 !important; margin-top: 3px !important; }
+            .vin-section { display: grid !important; grid-template-columns: repeat(4, 1fr) !important; gap: 3px !important; padding: 4px !important; background: #f5f5f5 !important; margin-top: 3px !important; }
+            .vin-section label { color: #0d47a1 !important; font-size: 5px !important; font-weight: bold !important; margin-bottom: 0.5px !important; }
+            .vin-section input { padding: 1px !important; font-size: 6px !important; border: 0.3px solid #ccc !important; background: white !important; color: black !important; }
             .manual-row { display: none !important; }
-            
             tbody tr:nth-child(even) { background: #f0f0f0 !important; }
             tbody tr:nth-child(odd) { background: white !important; }
-            
-            body::after {
-                content: "Dicetak: " attr(data-print-date) " | " attr(data-vehicle);
-                position: fixed;
-                bottom: 2mm;
-                right: 5mm;
-                font-size: 6px;
-                color: #666;
-            }
+            body::after { content: "Dicetak: " attr(data-print-date) " | " attr(data-vehicle); position: fixed; bottom: 2mm; right: 5mm; font-size: 6px; color: #666; }
         }
     </style>
 </head>
 <body>
 
     <div class="header">
-        <h1>⚙️ Preventive Maintenance Schedule</h1>
+        <h1>️ Preventive Maintenance Schedule</h1>
         <h2 id="vehicleTitle" contenteditable="true" spellcheck="false">CHEVROLET CAPTIVA C140 2.0 DIESEL</h2>
         <p class="edit-hint">💡 Klik teks di atas untuk mengedit nama kendaraan</p>
         <p>Keep It Healthy • Keep It Reliable • Go Further</p>
@@ -462,7 +220,7 @@
     </div>
 
     <div class="print-range-selector" id="printRangeSelector">
-        <label>️ Pilih Range Print (A4 Landscape):</label>
+        <label style="color:#ffd700; font-weight:bold; font-size:12px;">🖨️ Pilih Range Print (A4 Landscape):</label>
         <div style="display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin-top:8px;">
             <div>
                 <label style="color:#b0bec5; font-size:10px; display:block;">Dari (km):</label>
@@ -486,7 +244,7 @@
             </div>
             <div style="display:flex; gap:5px; align-items:flex-end;">
                 <button class="btn-print" onclick="printSelectedRange()" style="padding:6px 12px; font-size:11px;">🖨️ Print Range</button>
-                <button class="btn-edit" onclick="document.getElementById('printRangeSelector').style.display='none'" style="padding:6px 12px; font-size:11px;">Tutup</button>
+                <button class="btn-edit" onclick="document.getElementById('printRangeSelector').style.display='none'" style="padding:6px 12px; font-size:11px;">✕ Tutup</button>
             </div>
         </div>
         <p style="color:#b0bec5; font-size:10px; margin-top:5px;">💡 Tips: Pilih range 150.000-250.000 (21 baris) agar muat 1 lembar A4</p>
@@ -540,6 +298,7 @@
                 </tr>
             </thead>
             <tbody id="tableBody">
+                <!-- 3 Baris Manual Input -->
                 <tr class="manual-row" data-manual="true">
                     <td><input type="text" class="editable" placeholder="Odometer (km)"></td>
                     <td><input type="checkbox" class="checkbox-done"></td>
@@ -633,12 +392,58 @@
 
     <script>
         // ============================================
-        // ️ GANTI URL DI BAWAH INI dengan URL Web App kamu
+        // ️ PENTING: GANTI URL DI BAWAH INI
+        // dengan URL Web App Google Apps Script kamu
         // ============================================
         const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzWbbCeDJNrMj1GUnyqI_oYO-NPiynGMX0UcmYSCfXLBI4a-xvbkEmVm4TYJ2i8YSpEQA/exec';
-        
+
         let editMode = false;
         let currentVehicleId = null;
+
+        // ============================================
+        // GENERATE BARIS JADWAL 150.000 - 400.000 km
+        // ============================================
+        function generateScheduleRows() {
+            const tbody = document.getElementById('tableBody');
+            const startOdo = 150000;
+            const endOdo = 400000;
+            const step = 5000;
+
+            for (let odo = startOdo; odo <= endOdo; odo += step) {
+                const tr = document.createElement('tr');
+                tr.dataset.odometer = odo;
+
+                const oliCheck = true;
+                const solarCheck = odo % 10000 === 0;
+                const udaraCheck = odo % 25000 === 0;
+                const acCheck = odo % 25000 === 0;
+                const atfCheck = odo % 25000 === 0;
+                const injektorCheck = [200000, 300000, 400000].includes(odo);
+                const psCheck = [250000, 350000].includes(odo);
+                const coolantCheck = [250000, 350000].includes(odo);
+                const remCheck = [250000, 350000].includes(odo);
+
+                tr.innerHTML = `
+                    <td class="odometer-cell">${odo.toLocaleString('id-ID')}</td>
+                    <td><input type="checkbox" class="checkbox-done" ${oliCheck ? 'checked' : ''}></td>
+                    <td><input type="checkbox" class="checkbox-done" ${solarCheck ? 'checked' : ''}></td>
+                    <td><input type="checkbox" class="checkbox-done" ${udaraCheck ? 'checked' : ''}></td>
+                    <td><input type="checkbox" class="checkbox-done" ${acCheck ? 'checked' : ''}></td>
+                    <td><input type="checkbox" class="checkbox-done" ${atfCheck ? 'checked' : ''}></td>
+                    <td><input type="checkbox" class="checkbox-done" ${injektorCheck ? 'checked' : ''}></td>
+                    <td><input type="checkbox" class="checkbox-done" ${psCheck ? 'checked' : ''}></td>
+                    <td><input type="checkbox" class="checkbox-done" ${coolantCheck ? 'checked' : ''}></td>
+                    <td><input type="checkbox" class="checkbox-done" ${remCheck ? 'checked' : ''}></td>
+                    <td><input type="checkbox" class="checkbox-done" title="Sudah"></td>
+                    <td><input type="checkbox" class="checkbox-pending" title="Belum"></td>
+                    <td><input type="text" placeholder="DD-MM-YYYY"></td>
+                    <td><input type="text" placeholder="km"></td>
+                    <td><input type="text" placeholder="Catatan..."></td>
+                    <td><button class="btn-delete" onclick="resetRow(this)" title="Reset">🔄</button></td>
+                `;
+                tbody.appendChild(tr);
+            }
+        }
 
         function toggleEdit() {
             editMode = !editMode;
@@ -694,11 +499,11 @@
         }
 
         // ============================================
-        // GOOGLE SHEETS FUNCTIONS
+        // GOOGLE SHEETS - SEND DATA
         // ============================================
         async function sendToGoogleSheets(data) {
             if (GOOGLE_SCRIPT_URL.includes('GANTI_DENGAN_URL')) {
-                showNotification('️ URL Google Sheets belum disetting!', 'error');
+                showNotification('⚠️ URL Google Sheets belum disetting! Data hanya disimpan lokal.', 'error');
                 return false;
             }
 
@@ -738,6 +543,9 @@
             }
         }
 
+        // ============================================
+        // GOOGLE SHEETS - LOAD DATA
+        // ============================================
         async function loadFromGoogleSheets() {
             if (GOOGLE_SCRIPT_URL.includes('GANTI_DENGAN_URL')) {
                 showNotification('⚠️ URL Google Sheets belum disetting!', 'error');
@@ -756,7 +564,7 @@
                 if (result.status === 'success' && result.data && result.data.length > 0) {
                     const vehicles = result.data;
                     showNotification('📂 ' + vehicles.length + ' kendaraan dimuat!', 'success');
-                    
+
                     const firstVehicle = vehicles[vehicles.length - 1];
                     document.getElementById('vehicleTitle').textContent = firstVehicle['Nama Kendaraan'] || '';
                     document.getElementById('vinNumber').value = firstVehicle['VIN'] || '';
@@ -799,17 +607,17 @@
                 const cells = row.querySelectorAll('td');
                 const rowData = {
                     odometer: cells[0].querySelector('input') ? cells[0].querySelector('input').value : cells[0].textContent,
-                    oli: cells[1].querySelector('input').checked || false,
-                    solar: cells[2].querySelector('input').checked || false,
-                    udara: cells[3].querySelector('input').checked || false,
-                    ac: cells[4].querySelector('input').checked || false,
-                    atf: cells[5].querySelector('input').checked || false,
-                    injektor: cells[6].querySelector('input').checked || false,
-                    ps: cells[7].querySelector('input').checked || false,
-                    coolant: cells[8].querySelector('input').checked || false,
-                    rem: cells[9].querySelector('input').checked || false,
-                    statusDone: cells[10].querySelector('input').checked || false,
-                    statusPending: cells[11].querySelector('input').checked || false,
+                    oli: cells[1].querySelector('input').checked,
+                    solar: cells[2].querySelector('input').checked,
+                    udara: cells[3].querySelector('input').checked,
+                    ac: cells[4].querySelector('input').checked,
+                    atf: cells[5].querySelector('input').checked,
+                    injektor: cells[6].querySelector('input').checked,
+                    ps: cells[7].querySelector('input').checked,
+                    coolant: cells[8].querySelector('input').checked,
+                    rem: cells[9].querySelector('input').checked,
+                    statusDone: cells[10].querySelector('input').checked,
+                    statusPending: cells[11].querySelector('input').checked,
                     tanggal: cells[12].querySelector('input').value || '',
                     odometerDone: cells[13].querySelector('input').value || '',
                     catatan: cells[14].querySelector('input').value || '',
@@ -825,7 +633,7 @@
             document.getElementById('lastSaved').textContent = 'Terakhir disimpan: ' + now.toLocaleString('id-ID');
 
             if (!cloudSuccess) {
-                showNotification('💾 Data disimpan lokal', 'info');
+                showNotification('💾 Data disimpan lokal (Google Sheets belum disetting)', 'info');
             }
         }
 
@@ -844,8 +652,6 @@
                 const now = new Date();
                 document.getElementById('lastSaved').textContent = 'Terakhir dimuat: ' + now.toLocaleString('id-ID');
                 showNotification('📂 Data lokal dimuat!', 'info');
-            } else {
-                showNotification('⚠️ Tidak ada data tersimpan', 'error');
             }
         }
 
@@ -860,12 +666,12 @@
         function printSelectedRange() {
             const fromKm = parseInt(document.getElementById('printFrom').value);
             const toKm = parseInt(document.getElementById('printTo').value);
-            
+
             if (fromKm >= toKm) {
                 showNotification('⚠️ Nilai "Dari" harus lebih kecil dari "Sampai"!', 'error');
                 return;
             }
-            
+
             const rows = document.querySelectorAll('#tableBody tr');
             rows.forEach(row => {
                 const odoCell = row.querySelector('.odometer-cell');
@@ -877,10 +683,10 @@
                     }
                 }
             });
-            
+
             document.body.setAttribute('data-print-date', new Date().toLocaleString('id-ID'));
             document.body.setAttribute('data-vehicle', document.getElementById('vehicleTitle').textContent);
-            
+
             setTimeout(() => {
                 window.print();
                 setTimeout(() => {
@@ -918,10 +724,10 @@
                 <td><input type="text" placeholder="DD-MM-YYYY"></td>
                 <td><input type="text" placeholder="km"></td>
                 <td><input type="text" placeholder="Catatan..."></td>
-                <td><button class="btn-delete" onclick="deleteRow(this)">️</button></td>
+                <td><button class="btn-delete" onclick="deleteRow(this)">🗑️</button></td>
             `;
             tbody.insertBefore(tr, tbody.firstChild);
-            showNotification('➕ Baris manual ditambahkan!', 'success');
+            showNotification(' Baris manual ditambahkan!', 'success');
         }
 
         function deleteRow(btn) {
@@ -929,6 +735,15 @@
                 btn.closest('tr').remove();
                 showNotification('🗑️ Baris dihapus!', 'info');
             }
+        }
+
+        function resetRow(btn) {
+            const row = btn.closest('tr');
+            const checkboxes = row.querySelectorAll('input[type="checkbox"]');
+            checkboxes.forEach(cb => cb.checked = false);
+            const inputs = row.querySelectorAll('input[type="text"]');
+            inputs.forEach(inp => inp.value = '');
+            showNotification('🔄 Baris direset!', 'info');
         }
 
         function exportToCSV() {
@@ -980,7 +795,13 @@
             if (e.key === 'Enter') { e.preventDefault(); this.blur(); }
         });
 
-        window.addEventListener('load', () => { loadData(); });
+        // ============================================
+        // INIT: Generate rows + Load data
+        // ============================================
+        window.addEventListener('load', function() {
+            generateScheduleRows();
+            loadData();
+        });
     </script>
 </body>
 </html>
