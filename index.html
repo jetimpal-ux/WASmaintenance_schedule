@@ -159,7 +159,6 @@
             .vin-section { grid-template-columns: 1fr; }
         }
 
-        /* PRINT STYLES - A4 LANDSCAPE */
         @media print {
             @page { size: A4 landscape; margin: 8mm; }
             * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; color-adjust: exact !important; }
@@ -191,7 +190,7 @@
 <body>
 
     <div class="header">
-        <h1>️ Preventive Maintenance Schedule</h1>
+        <h1>⚙️ Preventive Maintenance Schedule</h1>
         <h2 id="vehicleTitle" contenteditable="true" spellcheck="false">CHEVROLET CAPTIVA C140 2.0 DIESEL</h2>
         <p class="edit-hint">💡 Klik teks di atas untuk mengedit nama kendaraan</p>
         <p>Keep It Healthy • Keep It Reliable • Go Further</p>
@@ -298,7 +297,6 @@
                 </tr>
             </thead>
             <tbody id="tableBody">
-                <!-- 3 Baris Manual Input -->
                 <tr class="manual-row" data-manual="true">
                     <td><input type="text" class="editable" placeholder="Odometer (km)"></td>
                     <td><input type="checkbox" class="checkbox-done"></td>
@@ -315,7 +313,7 @@
                     <td><input type="text" placeholder="DD-MM-YYYY"></td>
                     <td><input type="text" placeholder="km"></td>
                     <td><input type="text" placeholder="Catatan..."></td>
-                    <td><button class="btn-delete" onclick="deleteRow(this)">️</button></td>
+                    <td><button class="btn-delete" onclick="deleteRow(this)">🗑️</button></td>
                 </tr>
                 <tr class="manual-row" data-manual="true">
                     <td><input type="text" class="editable" placeholder="Odometer (km)"></td>
@@ -392,69 +390,67 @@
 
     <script>
         // ============================================
-        // ️ PENTING: GANTI URL DI BAWAH INI
+        // ⚠️ PENTING: GANTI URL DI BAWAH INI
         // dengan URL Web App Google Apps Script kamu
         // ============================================
-        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzWbbCeDJNrMj1GUnyqI_oYO-NPiynGMX0UcmYSCfXLBI4a-xvbkEmVm4TYJ2i8YSpEQA/exec';
+        var GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzWbbCeDJNrMj1GUnyqI_oYO-NPiynGMX0UcmYSCfXLBI4a-xvbkEmVm4TYJ2i8YSpEQA/exec';
 
-        let editMode = false;
-        let currentVehicleId = null;
+        var editMode = false;
+        var currentVehicleId = null;
 
         // ============================================
         // GENERATE BARIS JADWAL 150.000 - 400.000 km
         // ============================================
         function generateScheduleRows() {
-            const tbody = document.getElementById('tableBody');
-            const startOdo = 150000;
-            const endOdo = 400000;
-            const step = 5000;
+            var tbody = document.getElementById('tableBody');
+            var startOdo = 150000;
+            var endOdo = 400000;
+            var step = 5000;
 
-            for (let odo = startOdo; odo <= endOdo; odo += step) {
-                const tr = document.createElement('tr');
+            for (var odo = startOdo; odo <= endOdo; odo += step) {
+                var tr = document.createElement('tr');
                 tr.dataset.odometer = odo;
 
-                const oliCheck = true;
-                const solarCheck = odo % 10000 === 0;
-                const udaraCheck = odo % 25000 === 0;
-                const acCheck = odo % 25000 === 0;
-                const atfCheck = odo % 25000 === 0;
-                const injektorCheck = [200000, 300000, 400000].includes(odo);
-                const psCheck = [250000, 350000].includes(odo);
-                const coolantCheck = [250000, 350000].includes(odo);
-                const remCheck = [250000, 350000].includes(odo);
+                var oliCheck = true;
+                var solarCheck = (odo % 10000 === 0);
+                var udaraCheck = (odo % 25000 === 0);
+                var acCheck = (odo % 25000 === 0);
+                var atfCheck = (odo % 25000 === 0);
+                var injektorCheck = [200000, 300000, 400000].indexOf(odo) !== -1;
+                var psCheck = [250000, 350000].indexOf(odo) !== -1;
+                var coolantCheck = [250000, 350000].indexOf(odo) !== -1;
+                var remCheck = [250000, 350000].indexOf(odo) !== -1;
 
-                tr.innerHTML = `
-                    <td class="odometer-cell">${odo.toLocaleString('id-ID')}</td>
-                    <td><input type="checkbox" class="checkbox-done" ${oliCheck ? 'checked' : ''}></td>
-                    <td><input type="checkbox" class="checkbox-done" ${solarCheck ? 'checked' : ''}></td>
-                    <td><input type="checkbox" class="checkbox-done" ${udaraCheck ? 'checked' : ''}></td>
-                    <td><input type="checkbox" class="checkbox-done" ${acCheck ? 'checked' : ''}></td>
-                    <td><input type="checkbox" class="checkbox-done" ${atfCheck ? 'checked' : ''}></td>
-                    <td><input type="checkbox" class="checkbox-done" ${injektorCheck ? 'checked' : ''}></td>
-                    <td><input type="checkbox" class="checkbox-done" ${psCheck ? 'checked' : ''}></td>
-                    <td><input type="checkbox" class="checkbox-done" ${coolantCheck ? 'checked' : ''}></td>
-                    <td><input type="checkbox" class="checkbox-done" ${remCheck ? 'checked' : ''}></td>
-                    <td><input type="checkbox" class="checkbox-done" title="Sudah"></td>
-                    <td><input type="checkbox" class="checkbox-pending" title="Belum"></td>
-                    <td><input type="text" placeholder="DD-MM-YYYY"></td>
-                    <td><input type="text" placeholder="km"></td>
-                    <td><input type="text" placeholder="Catatan..."></td>
-                    <td><button class="btn-delete" onclick="resetRow(this)" title="Reset">🔄</button></td>
-                `;
+                tr.innerHTML = '<td class="odometer-cell">' + odo.toLocaleString('id-ID') + '</td>' +
+                    '<td><input type="checkbox" class="checkbox-done" ' + (oliCheck ? 'checked' : '') + '></td>' +
+                    '<td><input type="checkbox" class="checkbox-done" ' + (solarCheck ? 'checked' : '') + '></td>' +
+                    '<td><input type="checkbox" class="checkbox-done" ' + (udaraCheck ? 'checked' : '') + '></td>' +
+                    '<td><input type="checkbox" class="checkbox-done" ' + (acCheck ? 'checked' : '') + '></td>' +
+                    '<td><input type="checkbox" class="checkbox-done" ' + (atfCheck ? 'checked' : '') + '></td>' +
+                    '<td><input type="checkbox" class="checkbox-done" ' + (injektorCheck ? 'checked' : '') + '></td>' +
+                    '<td><input type="checkbox" class="checkbox-done" ' + (psCheck ? 'checked' : '') + '></td>' +
+                    '<td><input type="checkbox" class="checkbox-done" ' + (coolantCheck ? 'checked' : '') + '></td>' +
+                    '<td><input type="checkbox" class="checkbox-done" ' + (remCheck ? 'checked' : '') + '></td>' +
+                    '<td><input type="checkbox" class="checkbox-done" title="Sudah"></td>' +
+                    '<td><input type="checkbox" class="checkbox-pending" title="Belum"></td>' +
+                    '<td><input type="text" placeholder="DD-MM-YYYY"></td>' +
+                    '<td><input type="text" placeholder="km"></td>' +
+                    '<td><input type="text" placeholder="Catatan..."></td>' +
+                    '<td><button class="btn-delete" onclick="resetRow(this)" title="Reset">🔄</button></td>';
                 tbody.appendChild(tr);
             }
         }
 
         function toggleEdit() {
             editMode = !editMode;
-            const inputs = document.querySelectorAll('#tableBody input');
-            inputs.forEach(input => {
-                if (input.type === 'checkbox' || input.type === 'text') {
-                    input.disabled = !editMode;
+            var inputs = document.querySelectorAll('#tableBody input');
+            for (var i = 0; i < inputs.length; i++) {
+                if (inputs[i].type === 'checkbox' || inputs[i].type === 'text') {
+                    inputs[i].disabled = !editMode;
                 }
-            });
+            }
 
-            const btn = document.querySelector('.btn-edit');
+            var btn = document.querySelector('.btn-edit');
             if (editMode) {
                 btn.textContent = '🔒 Kunci';
                 btn.style.background = '#f44336';
@@ -467,10 +463,10 @@
         }
 
         function updateVehicleTitle() {
-            const select = document.getElementById('vehicleType');
-            const customInput = document.getElementById('customVehicleName');
-            const title = document.getElementById('vehicleTitle');
-            const modelInput = document.getElementById('vehicleModel');
+            var select = document.getElementById('vehicleType');
+            var customInput = document.getElementById('customVehicleName');
+            var title = document.getElementById('vehicleTitle');
+            var modelInput = document.getElementById('vehicleModel');
 
             if (select.value === 'custom') {
                 if (customInput.value.trim()) {
@@ -478,7 +474,7 @@
                     modelInput.value = customInput.value;
                 }
             } else {
-                const vehicleName = select.options[select.selectedIndex].text;
+                var vehicleName = select.options[select.selectedIndex].text;
                 title.textContent = vehicleName.toUpperCase();
                 modelInput.value = vehicleName;
                 customInput.value = '';
@@ -486,10 +482,10 @@
         }
 
         function syncVehicleTitle() {
-            const modelInput = document.getElementById('vehicleModel');
-            const title = document.getElementById('vehicleTitle');
-            const customInput = document.getElementById('customVehicleName');
-            const select = document.getElementById('vehicleType');
+            var modelInput = document.getElementById('vehicleModel');
+            var title = document.getElementById('vehicleTitle');
+            var customInput = document.getElementById('customVehicleName');
+            var select = document.getElementById('vehicleType');
 
             if (modelInput.value.trim()) {
                 title.textContent = modelInput.value.toUpperCase();
@@ -501,19 +497,19 @@
         // ============================================
         // GOOGLE SHEETS - SEND DATA
         // ============================================
-        async function sendToGoogleSheets(data) {
-            if (GOOGLE_SCRIPT_URL.includes('GANTI_DENGAN_URL')) {
-                showNotification('⚠️ URL Google Sheets belum disetting! Data hanya disimpan lokal.', 'error');
+        function sendToGoogleSheets(data) {
+            if (GOOGLE_SCRIPT_URL.indexOf('GANTI_DENGAN_URL') !== -1) {
+                showNotification('️ URL Google Sheets belum disetting! Data hanya disimpan lokal.', 'error');
                 return false;
             }
 
-            const dot = document.getElementById('connectionDot');
-            const text = document.getElementById('connectionText');
+            var dot = document.getElementById('connectionDot');
+            var text = document.getElementById('connectionText');
             dot.className = 'status-dot connecting';
             text.textContent = 'Google Sheets: Mengirim...';
 
             try {
-                const payload = {
+                var payload = {
                     action: 'saveAll',
                     namaKendaraan: document.getElementById('vehicleTitle').textContent,
                     vin: document.getElementById('vinNumber').value,
@@ -524,16 +520,20 @@
                     rows: data.rows
                 };
 
-                await fetch(GOOGLE_SCRIPT_URL, {
+                fetch(GOOGLE_SCRIPT_URL, {
                     method: 'POST',
                     mode: 'no-cors',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(payload)
+                }).then(function() {
+                    dot.className = 'status-dot connected';
+                    text.textContent = 'Google Sheets: Terhubung ✓';
+                    showNotification('✅ Data terkirim ke Google Sheets!', 'success');
+                }).catch(function(error) {
+                    dot.className = 'status-dot';
+                    text.textContent = 'Google Sheets: Gagal terhubung';
+                    showNotification('❌ Gagal: ' + error.message, 'error');
                 });
-
-                dot.className = 'status-dot connected';
-                text.textContent = 'Google Sheets: Terhubung ✓';
-                showNotification('✅ Data terkirim ke Google Sheets!', 'success');
                 return true;
             } catch (error) {
                 dot.className = 'status-dot';
@@ -546,52 +546,52 @@
         // ============================================
         // GOOGLE SHEETS - LOAD DATA
         // ============================================
-        async function loadFromGoogleSheets() {
-            if (GOOGLE_SCRIPT_URL.includes('GANTI_DENGAN_URL')) {
+        function loadFromGoogleSheets() {
+            if (GOOGLE_SCRIPT_URL.indexOf('GANTI_DENGAN_URL') !== -1) {
                 showNotification('⚠️ URL Google Sheets belum disetting!', 'error');
                 return;
             }
 
-            const dot = document.getElementById('connectionDot');
-            const text = document.getElementById('connectionText');
+            var dot = document.getElementById('connectionDot');
+            var text = document.getElementById('connectionText');
             dot.className = 'status-dot connecting';
             text.textContent = 'Google Sheets: Memuat...';
 
-            try {
-                const response = await fetch(GOOGLE_SCRIPT_URL + '?action=getVehicles');
-                const result = await response.json();
+            fetch(GOOGLE_SCRIPT_URL + '?action=getVehicles')
+                .then(function(response) { return response.json(); })
+                .then(function(result) {
+                    if (result.status === 'success' && result.data && result.data.length > 0) {
+                        var vehicles = result.data;
+                        showNotification('📂 ' + vehicles.length + ' kendaraan dimuat!', 'success');
 
-                if (result.status === 'success' && result.data && result.data.length > 0) {
-                    const vehicles = result.data;
-                    showNotification('📂 ' + vehicles.length + ' kendaraan dimuat!', 'success');
+                        var firstVehicle = vehicles[vehicles.length - 1];
+                        document.getElementById('vehicleTitle').textContent = firstVehicle['Nama Kendaraan'] || '';
+                        document.getElementById('vinNumber').value = firstVehicle['VIN'] || '';
+                        document.getElementById('plateNumber').value = firstVehicle['No. Polisi'] || '';
+                        document.getElementById('ownerName').value = firstVehicle['Nama Pemilik'] || '';
+                        document.getElementById('vehicleModel').value = firstVehicle['Nama Kendaraan'] || '';
+                        currentVehicleId = firstVehicle['ID'];
 
-                    const firstVehicle = vehicles[vehicles.length - 1];
-                    document.getElementById('vehicleTitle').textContent = firstVehicle['Nama Kendaraan'] || '';
-                    document.getElementById('vinNumber').value = firstVehicle['VIN'] || '';
-                    document.getElementById('plateNumber').value = firstVehicle['No. Polisi'] || '';
-                    document.getElementById('ownerName').value = firstVehicle['Nama Pemilik'] || '';
-                    document.getElementById('vehicleModel').value = firstVehicle['Nama Kendaraan'] || '';
-                    currentVehicleId = firstVehicle['ID'];
-
-                    dot.className = 'status-dot connected';
-                    text.textContent = 'Google Sheets: Terhubung ✓';
-                } else {
-                    showNotification('📭 Belum ada data di Google Sheets', 'info');
+                        dot.className = 'status-dot connected';
+                        text.textContent = 'Google Sheets: Terhubung ✓';
+                    } else {
+                        showNotification('📭 Belum ada data di Google Sheets', 'info');
+                        dot.className = 'status-dot';
+                        text.textContent = 'Google Sheets: Tidak ada data';
+                    }
+                })
+                .catch(function(error) {
                     dot.className = 'status-dot';
-                    text.textContent = 'Google Sheets: Tidak ada data';
-                }
-            } catch (error) {
-                dot.className = 'status-dot';
-                text.textContent = 'Google Sheets: Gagal terhubung';
-                showNotification('❌ Gagal load: ' + error.message, 'error');
-            }
+                    text.textContent = 'Google Sheets: Gagal terhubung';
+                    showNotification('❌ Gagal load: ' + error.message, 'error');
+                });
         }
 
         // ============================================
         // SAVE DATA
         // ============================================
-        async function saveData() {
-            const data = {
+        function saveData() {
+            var data = {
                 vehicleTitle: document.getElementById('vehicleTitle').textContent,
                 vin: document.getElementById('vinNumber').value,
                 owner: document.getElementById('ownerName').value,
@@ -602,10 +602,11 @@
                 rows: []
             };
 
-            const rows = document.querySelectorAll('#tableBody tr');
-            rows.forEach(row => {
-                const cells = row.querySelectorAll('td');
-                const rowData = {
+            var rows = document.querySelectorAll('#tableBody tr');
+            for (var r = 0; r < rows.length; r++) {
+                var row = rows[r];
+                var cells = row.querySelectorAll('td');
+                var rowData = {
                     odometer: cells[0].querySelector('input') ? cells[0].querySelector('input').value : cells[0].textContent,
                     oli: cells[1].querySelector('input').checked,
                     solar: cells[2].querySelector('input').checked,
@@ -624,23 +625,19 @@
                     isManual: row.dataset.manual === 'true'
                 };
                 data.rows.push(rowData);
-            });
+            }
 
             localStorage.setItem('maintenance_data', JSON.stringify(data));
-            const cloudSuccess = await sendToGoogleSheets(data);
+            sendToGoogleSheets(data);
 
-            const now = new Date();
+            var now = new Date();
             document.getElementById('lastSaved').textContent = 'Terakhir disimpan: ' + now.toLocaleString('id-ID');
-
-            if (!cloudSuccess) {
-                showNotification('💾 Data disimpan lokal (Google Sheets belum disetting)', 'info');
-            }
         }
 
         function loadData() {
-            const saved = localStorage.getItem('maintenance_data');
+            var saved = localStorage.getItem('maintenance_data');
             if (saved) {
-                const data = JSON.parse(saved);
+                var data = JSON.parse(saved);
                 document.getElementById('vehicleTitle').textContent = data.vehicleTitle || 'CHEVROLET CAPTIVA C140 2.0 DIESEL';
                 document.getElementById('vinNumber').value = data.vin || '';
                 document.getElementById('ownerName').value = data.owner || '';
@@ -649,9 +646,9 @@
                 document.getElementById('vehicleType').value = data.vehicleType || 'custom';
                 document.getElementById('customVehicleName').value = data.customVehicleName || '';
 
-                const now = new Date();
+                var now = new Date();
                 document.getElementById('lastSaved').textContent = 'Terakhir dimuat: ' + now.toLocaleString('id-ID');
-                showNotification('📂 Data lokal dimuat!', 'info');
+                showNotification(' Data lokal dimuat!', 'info');
             }
         }
 
@@ -659,43 +656,44 @@
         // PRINT FUNCTIONS
         // ============================================
         function showPrintOptions() {
-            const selector = document.getElementById('printRangeSelector');
+            var selector = document.getElementById('printRangeSelector');
             selector.style.display = selector.style.display === 'none' ? 'block' : 'none';
         }
 
         function printSelectedRange() {
-            const fromKm = parseInt(document.getElementById('printFrom').value);
-            const toKm = parseInt(document.getElementById('printTo').value);
+            var fromKm = parseInt(document.getElementById('printFrom').value);
+            var toKm = parseInt(document.getElementById('printTo').value);
 
             if (fromKm >= toKm) {
                 showNotification('⚠️ Nilai "Dari" harus lebih kecil dari "Sampai"!', 'error');
                 return;
             }
 
-            const rows = document.querySelectorAll('#tableBody tr');
-            rows.forEach(row => {
-                const odoCell = row.querySelector('.odometer-cell');
+            var rows = document.querySelectorAll('#tableBody tr');
+            for (var i = 0; i < rows.length; i++) {
+                var row = rows[i];
+                var odoCell = row.querySelector('.odometer-cell');
                 if (odoCell) {
-                    const odoValue = parseInt(odoCell.textContent.replace(/\./g, ''));
+                    var odoValue = parseInt(odoCell.textContent.replace(/\./g, ''));
                     if (odoValue < fromKm || odoValue > toKm) {
                         row.style.display = 'none';
                         row.dataset.hiddenForPrint = 'true';
                     }
                 }
-            });
+            }
 
             document.body.setAttribute('data-print-date', new Date().toLocaleString('id-ID'));
             document.body.setAttribute('data-vehicle', document.getElementById('vehicleTitle').textContent);
 
-            setTimeout(() => {
+            setTimeout(function() {
                 window.print();
-                setTimeout(() => {
-                    rows.forEach(row => {
-                        if (row.dataset.hiddenForPrint === 'true') {
-                            row.style.display = '';
-                            delete row.dataset.hiddenForPrint;
+                setTimeout(function() {
+                    for (var i = 0; i < rows.length; i++) {
+                        if (rows[i].dataset.hiddenForPrint === 'true') {
+                            rows[i].style.display = '';
+                            delete rows[i].dataset.hiddenForPrint;
                         }
-                    });
+                    }
                 }, 500);
             }, 300);
         }
@@ -704,28 +702,26 @@
         // UTILITY FUNCTIONS
         // ============================================
         function addManualRow() {
-            const tbody = document.getElementById('tableBody');
-            const tr = document.createElement('tr');
+            var tbody = document.getElementById('tableBody');
+            var tr = document.createElement('tr');
             tr.className = 'manual-row';
             tr.dataset.manual = 'true';
-            tr.innerHTML = `
-                <td><input type="text" class="editable" placeholder="Odometer (km)"></td>
-                <td><input type="checkbox" class="checkbox-done"></td>
-                <td><input type="checkbox" class="checkbox-done"></td>
-                <td><input type="checkbox" class="checkbox-done"></td>
-                <td><input type="checkbox" class="checkbox-done"></td>
-                <td><input type="checkbox" class="checkbox-done"></td>
-                <td><input type="checkbox" class="checkbox-done"></td>
-                <td><input type="checkbox" class="checkbox-done"></td>
-                <td><input type="checkbox" class="checkbox-done"></td>
-                <td><input type="checkbox" class="checkbox-done"></td>
-                <td><input type="checkbox" class="checkbox-done" title="Sudah"></td>
-                <td><input type="checkbox" class="checkbox-pending" title="Belum"></td>
-                <td><input type="text" placeholder="DD-MM-YYYY"></td>
-                <td><input type="text" placeholder="km"></td>
-                <td><input type="text" placeholder="Catatan..."></td>
-                <td><button class="btn-delete" onclick="deleteRow(this)">🗑️</button></td>
-            `;
+            tr.innerHTML = '<td><input type="text" class="editable" placeholder="Odometer (km)"></td>' +
+                '<td><input type="checkbox" class="checkbox-done"></td>' +
+                '<td><input type="checkbox" class="checkbox-done"></td>' +
+                '<td><input type="checkbox" class="checkbox-done"></td>' +
+                '<td><input type="checkbox" class="checkbox-done"></td>' +
+                '<td><input type="checkbox" class="checkbox-done"></td>' +
+                '<td><input type="checkbox" class="checkbox-done"></td>' +
+                '<td><input type="checkbox" class="checkbox-done"></td>' +
+                '<td><input type="checkbox" class="checkbox-done"></td>' +
+                '<td><input type="checkbox" class="checkbox-done"></td>' +
+                '<td><input type="checkbox" class="checkbox-done" title="Sudah"></td>' +
+                '<td><input type="checkbox" class="checkbox-pending" title="Belum"></td>' +
+                '<td><input type="text" placeholder="DD-MM-YYYY"></td>' +
+                '<td><input type="text" placeholder="km"></td>' +
+                '<td><input type="text" placeholder="Catatan..."></td>' +
+                '<td><button class="btn-delete" onclick="deleteRow(this)">🗑️</button></td>';
             tbody.insertBefore(tr, tbody.firstChild);
             showNotification(' Baris manual ditambahkan!', 'success');
         }
@@ -738,36 +734,41 @@
         }
 
         function resetRow(btn) {
-            const row = btn.closest('tr');
-            const checkboxes = row.querySelectorAll('input[type="checkbox"]');
-            checkboxes.forEach(cb => cb.checked = false);
-            const inputs = row.querySelectorAll('input[type="text"]');
-            inputs.forEach(inp => inp.value = '');
+            var row = btn.closest('tr');
+            var checkboxes = row.querySelectorAll('input[type="checkbox"]');
+            for (var i = 0; i < checkboxes.length; i++) {
+                checkboxes[i].checked = false;
+            }
+            var inputs = row.querySelectorAll('input[type="text"]');
+            for (var i = 0; i < inputs.length; i++) {
+                inputs[i].value = '';
+            }
             showNotification('🔄 Baris direset!', 'info');
         }
 
         function exportToCSV() {
-            const vehicleTitle = document.getElementById('vehicleTitle').textContent;
-            let csv = 'Vehicle: ' + vehicleTitle + '\n\n';
+            var vehicleTitle = document.getElementById('vehicleTitle').textContent;
+            var csv = 'Vehicle: ' + vehicleTitle + '\n\n';
             csv += 'Odometer,Oli,Solar,Udara,AC,ATF,Injektor,PS,Coolant,Rem,Sudah,Belum,Tanggal,Odo_Done,Catatan\n';
 
-            const rows = document.querySelectorAll('#tableBody tr');
-            rows.forEach(row => {
-                const cells = row.querySelectorAll('td');
-                const odo = cells[0].querySelector('input') ? cells[0].querySelector('input').value : cells[0].textContent;
-                const values = [];
-                for (let i = 1; i <= 11; i++) {
+            var rows = document.querySelectorAll('#tableBody tr');
+            for (var r = 0; r < rows.length; r++) {
+                var row = rows[r];
+                var cells = row.querySelectorAll('td');
+                var odo = cells[0].querySelector('input') ? cells[0].querySelector('input').value : cells[0].textContent;
+                var values = [];
+                for (var i = 1; i <= 11; i++) {
                     values.push(cells[i].querySelector('input').checked ? 'Ya' : 'Tidak');
                 }
                 values.push(cells[12].querySelector('input').value || '');
                 values.push(cells[13].querySelector('input').value || '');
                 values.push(cells[14].querySelector('input').value || '');
                 csv += odo + ',' + values.join(',') + '\n';
-            });
+            }
 
-            const blob = new Blob([csv], { type: 'text/csv' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
+            var blob = new Blob([csv], { type: 'text/csv' });
+            var url = URL.createObjectURL(blob);
+            var a = document.createElement('a');
             a.href = url;
             a.download = 'maintenance_' + vehicleTitle.replace(/\s+/g, '_') + '_' + new Date().toISOString().split('T')[0] + '.csv';
             a.click();
@@ -775,15 +776,15 @@
         }
 
         function showNotification(message, type) {
-            const notif = document.getElementById('notification');
+            var notif = document.getElementById('notification');
             notif.textContent = message;
             notif.className = 'notification ' + type;
             notif.style.display = 'block';
-            setTimeout(() => { notif.style.display = 'none'; }, 3000);
+            setTimeout(function() { notif.style.display = 'none'; }, 3000);
         }
 
         // Auto-save setiap 30 detik
-        setInterval(() => {
+        setInterval(function() {
             if (editMode) { saveData(); }
         }, 30000);
 
@@ -796,7 +797,7 @@
         });
 
         // ============================================
-        // INIT: Generate rows + Load data
+        // INIT
         // ============================================
         window.addEventListener('load', function() {
             generateScheduleRows();
